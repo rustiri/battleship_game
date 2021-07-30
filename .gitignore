@@ -1,3 +1,7 @@
+# Ignore files.
+bootstrap.php
+init_db.php
+
 composer.phar
 /vendor/
 
