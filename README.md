@@ -15,3 +15,7 @@ The goal of this project is to create battleship game using PHP with PDO databas
 2. MySQL Database 
 3. Composer
 4. Web browser: Google or FireFox
+
+## File Structure
+* Model folder contains classes that hold all the data
+* Service folder contains classes that do all the work
