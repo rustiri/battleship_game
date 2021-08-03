@@ -1,12 +1,25 @@
 <?php
 
+/**
+ * This class is for calling method on the shipStorage
+ * Its job is to create the object from the data whereever the data came from
+ * Goal: to load data from database or json file 
+ */
+
+
 class ShipLoader
 {
-  private $pdo;
+  private $shipStorage;
 
-  public function __construct(PDO $pdo)
+  /*
+  public function __construct(PdoShipStorage $shipStorage)
   {
-    $this->pdo = $pdo;
+    $this->shipStorage = $shipStorage;
+  }
+  */
+  public function __construct(AbstractShipStorage $shipStorage)
+  {
+    $this->shipStorage = $shipStorage;
   }
 
   /**
@@ -14,7 +27,8 @@ class ShipLoader
    */
   public function getShips()
   {
-    $shipsData = $this->queryForShips();
+    //$shipsData = $this->queryForShips();
+    $shipsData = $this->shipStorage->fetchAllShipsData();
 
     $ships = array(); //create empty array to hold ships data
 
@@ -33,18 +47,23 @@ class ShipLoader
    */
   public function findOneById($id)
   {
+
+    $shipArray = $this->shipStorage->fetchSingleShipData($id);
+
+    /*
     $pdo = $pdo = $this->getPDO();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $statement = $pdo->prepare('SELECT * FROM ship WHERE id = :id');
     $statement->execute(array('id' => $id));
-    $shipsArray = $statement->fetch(PDO::FETCH_ASSOC);
+    $shipArray = $statement->fetch(PDO::FETCH_ASSOC);
 
     //check if ship id is valid, return null if not valid
-    if(!$shipsArray) {
+    if(!$shipArray) {
       return null;
     }
+    */
 
-    return $this->createShipFromData($shipsArray);
+    return $this->createShipFromData($shipArray);
   }
 
   private function createShipFromData(array $shipData)
@@ -63,20 +82,10 @@ class ShipLoader
     return $ship;
   }
 
-  private function queryForShips()
-  {
-    $pdo = $this->getPDO();
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $statement = $pdo->prepare('SELECT * FROM ship');
-    $statement->execute();
-    $shipsArray = $statement->fetchAll((PDO::FETCH_ASSOC));
-
-    return $shipsArray;
-  }
-
   /**
    * @return PDO
    */
+  /*
   private function getPDO()
   {
     /*
@@ -88,6 +97,7 @@ class ShipLoader
       $this->pdo = $pdo;
     }
     */
-    return $this->pdo;
+    /*return $this->pdo;
   }
+  */
 }
