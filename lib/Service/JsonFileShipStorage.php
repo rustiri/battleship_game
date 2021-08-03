@@ -5,7 +5,8 @@
  * 
  */
 
-class JsonFileShipStorage extends AbstractShipStorage
+//class JsonFileShipStorage extends AbstractShipStorage
+class JsonFileShipStorage implements ShipStorageInterface
 {
   private $filename;
 

@@ -4,7 +4,8 @@
  * This class is for the query logic
  */
 
-class PdoShipStorage extends AbstractShipStorage
+//class PdoShipStorage extends AbstractShipStorage
+class PdoShipStorage implements ShipStorageInterface
 {
   private $pdo;
 

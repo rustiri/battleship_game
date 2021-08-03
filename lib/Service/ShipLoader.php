@@ -16,8 +16,13 @@ class ShipLoader
   {
     $this->shipStorage = $shipStorage;
   }
-  */
+  
   public function __construct(AbstractShipStorage $shipStorage)
+  {
+    $this->shipStorage = $shipStorage;
+  }
+  */
+  public function __construct(ShipStorageInterface $shipStorage)
   {
     $this->shipStorage = $shipStorage;
   }
