@@ -1,27 +1,31 @@
 <?php
 
-class Ship 
+abstract class AbstractShip 
 {
   private $id;
   private $name;
   private $weaponPower = 0;
-  private $jediFactor = 0;
   private $strength = 0;
 
-  private $underRepair;
+  /**
+   * @return integer
+   */
+  abstract public function getJediFactor();
+
+  /**
+   * @return string
+   */
+  abstract public function getType();
+
+  /**
+   * @return bool
+   */
+  abstract public function isFunctional();
 
   public function __construct($name)
   {
     $this->name = $name;
 
-    //this gives each ship 30% chances of being broken or under repair
-    $this->underRepair = mt_rand(1, 100) < 30;
-  }
-
-  public function isFunctional()
-  {
-    //if ship is under repair then it's not functional
-    return !$this->underRepair;
   }
 
   public function getName()
@@ -36,7 +40,7 @@ class Ship
         '%s: %s/%s/%s',
         $this->name,
         $this->weaponPower,
-        $this->jediFactor,
+        $this->getJediFactor(),
         $this->strength
       );
     } else {
@@ -44,7 +48,7 @@ class Ship
         '%s: w:%s, j:%s, s:%s',
         $this->name,
         $this->weaponPower,
-        $this->jediFactor,
+        $this->getJediFactor(),
         $this->strength
       );
     }
@@ -88,27 +92,7 @@ class Ship
 
     return $this;
   }
-
-  /**
-   * Get the value of jediFactor
-   */ 
-  public function getJediFactor()
-  {
-    return $this->jediFactor;
-  }
-
-  /**
-   * Set the value of jediFactor
-   *
-   * @return  self
-   */ 
-  public function setJediFactor($jediFactor)
-  {
-    $this->jediFactor = $jediFactor;
-
-    return $this;
-  }
-
+  
   /**
    * Set the value of name
    *
@@ -139,4 +123,5 @@ class Ship
 
     return $this;
   }
+
 }

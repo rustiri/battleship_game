@@ -19,3 +19,8 @@ The goal of this project is to create battleship game using PHP with PDO databas
 ## File Structure
 * Model folder contains classes that hold all the data
 * Service folder contains classes that do all the work
+
+### NOTES
+* New class called RebelShip was created inside Model folder for inheritance method.
+* New class called AbstractShip was created inside Model folder for Abstraction method.
+* New class called BrokenShip was created inside Model folder to show that the ship is always broken.
