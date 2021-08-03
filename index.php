@@ -13,6 +13,8 @@ $ships[] = $rebelShip; //add to the ship array
 $brokenShip = new BrokenShip('I am so broken ship');
 $ships[] = $brokenShip;
 
+//$battleManager = $container->getBattleManager();
+$battleTypes = BattleManager::getBattleTypeWithDescription();
 
 $errorMessage = '';
 if (isset($_GET['error'])) {
@@ -114,6 +116,17 @@ if (isset($_GET['error'])) {
                 <?php endforeach; ?>
             </select>
             <br>
+            
+            <div class="text-center">
+              <label for="battle_type">Battle Type</label>
+              <select name="battle_type" id="battle_type" class="form-control drp-dwn-width mx-auto">
+                <?php foreach ($battleTypes as $battleType => $typeText): ?>
+                  <option value="<?php echo $battleType; ?>"><?php echo $typeText; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
+            <br/>
             <button class="btn btn-md btn-danger mx-auto" type="submit">Engage</button>
           </form>
         </div>
