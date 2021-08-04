@@ -1,5 +1,7 @@
 <?php
 
+namespace Service;
+
 /**
  * This class only contains abstract function, it doesn't have any functionatility.
  * It allows the code to be generic.

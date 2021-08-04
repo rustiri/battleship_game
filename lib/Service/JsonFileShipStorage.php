@@ -1,5 +1,7 @@
 <?php
 
+namespace Service;
+
 /**
  * This class is to fetch data from JSON File
  * 

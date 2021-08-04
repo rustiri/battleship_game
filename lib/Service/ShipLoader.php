@@ -1,5 +1,11 @@
 <?php
 
+namespace Service;
+
+use Model\RebelShip;
+use Model\Ship;
+use Model\AbstractShip;
+
 /**
  * This class is for calling method on the shipStorage
  * Its job is to create the object from the data whereever the data came from

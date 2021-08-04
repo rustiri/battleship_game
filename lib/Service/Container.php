@@ -1,5 +1,7 @@
 <?php
 
+namespace Service;
+
 /**
  * This class is to combine/fetch all the data from PdoShipStorage and ShipLoader
  * 
@@ -23,19 +25,19 @@ class Container
   }
 
   /**
-   * @return PDO
+   * @return \PDO
    */
   public function getPDO()
   {
     if($this->pdo === null) {
-      $this->pdo = new PDO(
+      $this->pdo = new \PDO(
         $this->configuration['db_dsn'],
         $this->configuration['db_user'],
         $this->configuration['db_pass']
       );
 
       // set PDO exception if something goes wrong
-      $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
     return $this->pdo;

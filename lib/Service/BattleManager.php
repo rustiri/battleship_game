@@ -1,5 +1,10 @@
 <?php
 
+namespace Service;
+
+use Model\BattleResult;
+use Model\AbstractShip;
+
 class BattleManager
 {
   //create constant(constant is always static) property, it will never be changed.
