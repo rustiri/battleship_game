@@ -5,6 +5,8 @@ namespace Service;
 use Model\RebelShip;
 use Model\Ship;
 use Model\AbstractShip;
+use Model\BountyHunterShip;
+use Model\ShipCollection;
 
 /**
  * This class is for calling method on the shipStorage
@@ -34,7 +36,7 @@ class ShipLoader
   }
 
   /**
-   * @return AbstractShip[]
+   * @return ShipCollection
    */
   public function getShips()
   {
@@ -54,7 +56,11 @@ class ShipLoader
       $ships[] = $this->createShipFromData($shipData); //put ship into the ship array
     }
 
-    return $ships;
+    // Add new BountyHunter to ShipCollection
+    $ships[] = new BountyHunterShip('Slave I');
+
+    //return $ships;
+    return new ShipCollection($ships);
 
   }
 

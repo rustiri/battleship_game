@@ -4,8 +4,8 @@ namespace Model;
 
 class Ship extends AbstractShip
 {
-  
-  private $jediFactor = 0;
+  use SettableJediFactorTrait; // this is horizontal reuse
+  //private $jediFactor = 0;
 
   private $underRepair;
 
@@ -20,22 +20,26 @@ class Ship extends AbstractShip
   /**
    * Get the value of jediFactor
    */ 
+  /* not used, see trait SettableJediFactorTrait
   public function getJediFactor()
   {
     return $this->jediFactor;
   }
+  */
 
   /**
    * Set the value of jediFactor
    *
    * @return  self
    */ 
+  /* not used, see trait SettableJediFactorTrait
   public function setJediFactor($jediFactor)
   {
     $this->jediFactor = $jediFactor;
 
     return $this;
   }
+  */
 
   public function isFunctional()
   {
