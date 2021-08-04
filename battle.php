@@ -67,9 +67,9 @@ $battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Qua
                 <h2 class="text-center">The Matchup:</h2>
                 <p class="text-center">
                     <br>
-                    <?php echo $ship1Quantity; ?> <?php echo $ship1->getName(); ?><?php echo $ship1Quantity > 1 ? 's': ''; ?>
+                    <?php echo $ship1Quantity; ?> <?php echo $ship1; ?><?php echo $ship1Quantity > 1 ? 's': ''; ?>
                     VS.
-                    <?php echo $ship2Quantity; ?> <?php echo $ship2->getName(); ?><?php echo $ship2Quantity > 1 ? 's': ''; ?>
+                    <?php echo $ship2Quantity; ?> <?php echo $ship2; ?><?php echo $ship2Quantity > 1 ? 's': ''; ?>
                 </p>
             </div>
             <div class="result-box mx-auto">
@@ -93,6 +93,14 @@ $battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Qua
                         <?php endif; ?>
                     <?php endif; ?>
                 </p>
+
+                <h3>Ship Health</h3>
+                <dl class="row">
+                    <dt class="col-sm-6"><?php echo $ship1->getName(); ?></dt>
+                    <dd class="col-sm-3"><?php echo $ship1->getStrength(); ?></dd>
+                    <dt class="col-sm-6"><?php echo $ship2->getName(); ?></dt>
+                    <dd class="col-sm-3"><?php echo $ship2->getStrength(); ?></dd>
+                </dl>
             </div>
             <a href="/index.php"><p class="text-center"><i class="fas fa-undo"></i> Battle again</p></a>
         

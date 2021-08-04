@@ -65,7 +65,7 @@ abstract class AbstractShip
   {
     //check if strength is number or integer, if not throw error
     if(!is_numeric($strength)) {
-      throw new Exception('Invalid strength passed '.$strength);
+      throw new \Exception('Invalid strength passed '.$strength);
     }
     $this->strength = $strength;
   }
@@ -124,6 +124,14 @@ abstract class AbstractShip
     $this->id = $id;
 
     return $this;
+  }
+
+  /**
+   * Function to convert and print object to a string
+   */
+  public function __toString()
+  {
+    return $this->getName();
   }
 
 }
